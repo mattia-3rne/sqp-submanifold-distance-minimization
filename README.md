@@ -48,7 +48,7 @@ where the constraint Hessian is the constant diagonal matrix:
 \nabla^2 g(\mathbf{x}) = \begin{bmatrix} \dfrac{2}{a^2} & 0 & 0 \\ 0 & \dfrac{2}{b^2} & 0 \\ 0 & 0 & \dfrac{2}{c^2} \end{bmatrix}
 ```
 
-The principal curvatures $\kappa_1, \kappa_2$ at a point $\mathbf{x}$ are the eigenvalues of the shape operator restricted to $T_\mathbf{x}\mathcal{M}$. For the ellipsoid, they vary continuously across the surface — curvature is highest near the tips of the shortest semi-axis and smallest near the equatorial bulge. This spatial variation is precisely why the optimal Lagrange multiplier $\lambda^*$ is not constant: its magnitude encodes the local curvature of $\mathcal{M}$ at the projection point.
+The principal curvatures $\kappa_1, \kappa_2$ at a point $\mathbf{x}$ are the eigenvalues of the shape operator restricted to $T_\mathbf{x}\mathcal{M}$. For the ellipsoid, they vary continuously across the surface, where curvature is highest near the tips of the shortest semi-axis and smallest near the equatorial bulge. This spatial variation is precisely why the optimal Lagrange multiplier $\lambda^*$ is not constant: its magnitude encodes the local curvature of $\mathcal{M}$ at the projection point.
 
 ### 2.4 Metric Projection and Uniqueness
 
@@ -60,7 +60,7 @@ The metric projection of an external point $\mathbf{p} \notin \mathcal{M}$ onto 
 
 Because the ellipsoid is a compact, strictly convex surface, every exterior point $\mathbf{p}$ has a unique closest point. The proof follows from strict convexity: the level sets of $f(\mathbf{x}) = \|\mathbf{x} - \mathbf{p}\|^2$ are spheres centred at $\mathbf{p}$, and a sphere can be tangent to a strictly convex surface at most at one point from the outside.
 
-The signed distance function $d(\mathbf{p}) = \min_{\mathbf{x} \in \mathcal{M}} \|\mathbf{x} - \mathbf{p}\|$ is smooth everywhere except on the medial axis — the locus of points equidistant from two or more surface points. For the re-entry scenario, the capsule's orbital altitude ensures $\mathbf{p}$ remains well clear of the medial axis, guaranteeing smooth, unique projections throughout the trajectory.
+The signed distance function $d(\mathbf{p}) = \min_{\mathbf{x} \in \mathcal{M}} \|\mathbf{x} - \mathbf{p}\|$ is smooth everywhere except on the medial axis, which is the locus of points equidistant from two or more surface points. For the re-entry scenario, the capsule's orbital altitude ensures $\mathbf{p}$ remains well clear of the medial axis, guaranteeing smooth, unique projections throughout the trajectory.
 
 ### 2.5 Geometric Interpretation of the Lagrange Multiplier
 
@@ -142,7 +142,7 @@ SQP requires a local quadratic model of the Lagrangian. The Hessian $\mathbf{H} 
 \mathbf{H} = 2\mathbf{I} + \lambda \begin{bmatrix} \dfrac{2}{a^2} & 0 & 0 \\ 0 & \dfrac{2}{b^2} & 0 \\ 0 & 0 & \dfrac{2}{c^2} \end{bmatrix} = \begin{bmatrix} 2 + \dfrac{2\lambda}{a^2} & 0 & 0 \\ 0 & 2 + \dfrac{2\lambda}{b^2} & 0 \\ 0 & 0 & 2 + \dfrac{2\lambda}{c^2} \end{bmatrix}
 ```
 
-For the solution to be a strict local minimum, the reduced Hessian — the Lagrangian Hessian projected onto the tangent space $T_{\mathbf{x}^*}\mathcal{M}$ — must be positive definite:
+For the solution to be a strict local minimum, the Lagrangian Hessian projected onto the tangent space $T_{\mathbf{x}^*}\mathcal{M}$ must be positive definite:
 
 ```math
 \mathbf{v}^T \mathbf{H}(\mathbf{x}^*, \lambda^*) \, \mathbf{v} > 0 \quad \forall \, \mathbf{v} \in T_{\mathbf{x}^*}\mathcal{M} \setminus \{\mathbf{0}\}
