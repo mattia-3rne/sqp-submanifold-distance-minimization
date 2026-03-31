@@ -1,0 +1,12 @@
+ellipsoid:
+  a: 6378.0
+  b: 6378.0
+  c: 6356.0
+
+sqp:
+  tolerance: 0.00001
+  max_iterations: 10
+
+trajectory:
+  altitude: 1500.0
+  timesteps: 365
