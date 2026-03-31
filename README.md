@@ -237,7 +237,7 @@ The residual of the KKT system at the warm-start point is of order $\mathcal{O}(
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/mattia-3rne/sqp-submanifold-distance-minimization.git
+    git clone https://github.com/mattia-3rne/submanifold-distance-minimization-via-sqp.git
     ```
 
 2.  **Install dependencies**:
