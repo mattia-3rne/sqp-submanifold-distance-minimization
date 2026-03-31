@@ -212,7 +212,7 @@ The capsule follows a parametric orbital trajectory $\mathbf{p}(t) \in \mathbb{R
 \mathbf{x}_{\text{init}}(t) = \mathbf{x}^*(t - \Delta t), \qquad \lambda_{\text{init}}(t) = \lambda^*(t - \Delta t)
 ```
 
-The residual of the KKT system at the warm-start point is of order $\mathcal{O}(\|\dot{\mathbf{p}}\| \Delta t)$, meaning the iterate is already close to the new solution. This reduces the required number of SQP iterations from approximately ten on a cold start to typically one or two, enabling real-time performance over long orbital arcs.
+The residual of the KKT system at the warm-start point is of order $\mathcal{O}(\left\| \frac{d\mathbf{p}}{dt} \right\| \Delta t)$, meaning the iterate is already close to the new solution. This reduces the required number of SQP iterations from approximately ten on a cold start to typically one or two, enabling real-time performance over long orbital arcs.
 
 ---
 
@@ -223,7 +223,7 @@ The residual of the KKT system at the warm-start point is of order $\mathcal{O}(
 | **Geometric Singularities** | If $\mathbf{p}$ lies exactly at the centre $\mathbf{0}$ of the ellipsoid, then $\nabla f(\mathbf{x}) = 2\mathbf{x}$ is parallel to $\nabla g(\mathbf{x})$ for every $\mathbf{x} \in \mathcal{M}$, and the KKT matrix becomes singular. Physically this would require the capsule to be at Earth's centre, which is not a realistic scenario. |
 | **Matrix Inversion Cost** | The algorithm solves a $(D+1) \times (D+1)$ saddle-point system at every iteration. The $\mathcal{O}(D^3)$ cost of dense inversion is negligible for $D = 3$ but prohibitive for very high-dimensional manifolds. |
 | **Local Optimality** | SQP converges to a local KKT point. For the ellipsoid, strict convexity guarantees this is the global minimizer for any exterior point. On non-convex surfaces the result depends on initialization. |
-| **Warm-Start Drift** | If the capsule undergoes a rapid orbital correction manoeuvre, $\|\dot{\mathbf{p}}\| \Delta t$ may be large and the warm-started iterate may lie far from the new solution, causing the iteration count to temporarily spike back to cold-start levels. |
+| **Warm-Start Drift** | If the capsule undergoes a rapid orbital correction manoeuvre, $\left\| \frac{d\mathbf{p}}{dt} \right\| \Delta t$ may be large and the warm-started iterate may lie far from the new solution, causing the iteration count to temporarily spike back to cold-start levels. |
 
 ---
 
